@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pipex.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ssottori <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/08 22:11:16 by ssottori          #+#    #+#             */
+/*   Updated: 2024/03/08 22:12:17 by ssottori         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "pipex.h"
 
@@ -14,12 +24,13 @@
  It allows different processes to communicate with each other even if they are not directly related or part of the same program.
  dup2 allows for seamless communication between input output streams through the shared pipe.*/
 
-void	child_process(char **av, envp, fd)
+void	child_process(char **av, char **envp, fd)
 {
+	int	input;
 
-
-/* child - filein
-   parent - fileout
+	input = 
+/* child - input
+   parent - output
    both close with exec function
    child -> 
    run inside a fork
@@ -57,9 +68,10 @@ int	main(int ac, char **av, char **envp)
 	}
 	else
 	{
-		ft_putstr_fd(""\033[31mError: Bad arguments\n\e[0m", 2")
+		ft_putstr_fd("Error: Bad args");
 
-
+	}
+}
 /*
 * TO DO:
 * [] init pipex
