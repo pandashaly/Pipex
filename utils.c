@@ -6,16 +6,17 @@
 /*   By: ssottori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 15:39:08 by ssottori          #+#    #+#             */
-/*   Updated: 2024/03/20 18:30:30 by ssottori         ###   ########.fr       */
+/*   Updated: 2024/03/20 22:18:59 by ssottori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+#include <stdlib.h>
 
 void	p_error(void)
 {
 	perror("Error");
-	exit(EXIT_FALIURE);
+	exit(EXIT_FAILURE);
 }
 
 void	child_process(char **av, char **envp, int *fd)
@@ -44,11 +45,11 @@ void	parent_process(char **av, char **envp, int *fd)
 	exec_cmd(av[1], envp);
 }
 
-char	*cmd_path(char **cmd, char **envp)
+char	*cmd_path(char *cmd, char **envp)
 {
 	char	**dir_paths;
 	char	*path;
-	char	*paths;
+	char	*part_paths;
 	int		i;
 
 	i = 0;
@@ -80,7 +81,7 @@ void	exec_cmd(char *av, char **envp)
 
 	i = 0;
 	cmd = ft_split(av, ' ');
-	path = cmd_path(cmd, envp);
+	path = cmd_path(cmd[0], envp);
 	if (!path)
 	{
 		while (cmd[i++])
@@ -88,6 +89,6 @@ void	exec_cmd(char *av, char **envp)
 		free(cmd);
 		p_error();
 	}
-	if (exceve(path, cmd, envp) == -1)
+	if (execve(path, cmd, envp) == -1)
 		p_error();
 }

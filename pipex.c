@@ -6,20 +6,11 @@
 /*   By: ssottori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 22:11:16 by ssottori          #+#    #+#             */
-/*   Updated: 2024/03/20 16:16:42 by ssottori         ###   ########.fr       */
+/*   Updated: 2024/03/20 22:07:44 by ssottori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-
-/* Child process that run inside a fork, take the filein, put the output inside
- a pipe and then close with the exec function 
- IPC - Inter Process Communication
- parent process (read argv[1] write to pipe | child process (exec cmd argv[2])
- It allows different processes to communicate with each other even if 
- they are not directly related or part of the same program.
- dup2 allows for seamless communication between input output streams 
- through the shared pipe.*/
 
 /* child - input
    parent - output
@@ -46,17 +37,17 @@ int	main(int ac, char **av, char **envp)
 	if (ac == 5)
 	{
 		if (pipe(fd) == -1)
-			error();
+			p_error();
 		pid = fork();
 		if (pid == -1)
-			error();
+			p_error();
 		if (pid == 0)
 			child_process(av, envp, fd);
 		waitpid(pid, NULL, 0);
-		parent_process(argv, envp, fd);
+		parent_process(av, envp, fd);
 	}
 	else
-		ft_putstr_fd("Error!" 2);
+		ft_putstr_fd("Error!", 2);
 	return (0);
 }
 
