@@ -6,7 +6,7 @@
 /*   By: ssottori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 15:39:08 by ssottori          #+#    #+#             */
-/*   Updated: 2024/03/20 17:14:05 by ssottori         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:30:30 by ssottori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,30 @@ void	parent_process(char **av, char **envp, int *fd)
 
 char	*cmd_path(char **cmd, char **envp)
 {
+	char	**dir_paths;
+	char	*path;
+	char	*paths;
+	int		i;
+
+	i = 0;
+	while (ft_strnstr(envp[i], "PATH", 4) == 0)
+		i++;
+	dir_paths = ft_split(envp[i] + 5, ':');
+	i = -1;
+	while (dir_paths[++i])
+	{
+		part_paths = ft_strjoin(dir_paths[i], "/");
+		path = ft_strjoin(part_paths, cmd);
+		free(part_paths);
+		if (access(path, F_OK) == 0)
+			return (path);
+		free (path);
+	}
+	i = -1;
+	while (dir_paths[++i])
+		free(dir_paths[i]);
+	free(dir_paths);
+	return (NULL);
 }
 
 void	exec_cmd(char *av, char **envp)
