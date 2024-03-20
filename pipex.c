@@ -6,7 +6,7 @@
 /*   By: ssottori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 22:11:16 by ssottori          #+#    #+#             */
-/*   Updated: 2024/03/20 16:12:36 by ssottori         ###   ########.fr       */
+/*   Updated: 2024/03/20 16:16:42 by ssottori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,29 +21,6 @@
  dup2 allows for seamless communication between input output streams 
  through the shared pipe.*/
 
-void	child_process(char **av, char **envp, int *fd)
-{
-	int	infile;
-
-	infile = open(av[1], O_RDONLY, 0777);
-	if (infile == -1)
-		p_error();
-	dup2(fd[1], STDOUT_FILENO);
-	dup2(infile, STDIN_FILENO);
-	close(fd[1]);
-}
-
-void	parent_process(char **av, char **envp, int *fd)
-{
-	int	outfile;
-
-	outfile = open(av[1], O_WRONLY | O_CREAT | O_TRUNC, 0777);
-	if (outfile == -1)
-		p_error();
-	dup2(fd[1], STDOUT_FILENO);
-	dup2(outfile, STDIN_FILENO);
-	close(fd[1]);
-}
 /* child - input
    parent - output
    both close with exec function
