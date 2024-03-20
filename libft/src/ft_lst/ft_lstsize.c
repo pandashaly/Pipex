@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssottori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 15:39:08 by ssottori          #+#    #+#             */
-/*   Updated: 2024/03/20 15:46:25 by ssottori         ###   ########.fr       */
+/*   Created: 2023/11/28 16:01:36 by ssottori          #+#    #+#             */
+/*   Updated: 2023/11/29 16:10:03 by ssottori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-void	p_error(void)
+int	ft_lstsize(t_list *lst)
 {
-	perror("Error");
-	exit(EXIT_FALIURE);
+	int		i;
+	t_list	*node;
+
+	i = 0;
+	node = lst;
+	while (node)
+	{
+		node = node->next;
+		i++;
+	}
+	return (i);
 }

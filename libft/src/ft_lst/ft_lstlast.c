@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssottori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 15:39:08 by ssottori          #+#    #+#             */
-/*   Updated: 2024/03/20 15:46:25 by ssottori         ###   ########.fr       */
+/*   Created: 2023/11/28 16:05:26 by ssottori          #+#    #+#             */
+/*   Updated: 2023/11/28 16:42:17 by ssottori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-void	p_error(void)
+t_list	*ft_lstlast(t_list *lst)
 {
-	perror("Error");
-	exit(EXIT_FALIURE);
+	if (!lst)
+		return (0);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

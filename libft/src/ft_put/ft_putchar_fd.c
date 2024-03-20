@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssottori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 15:39:08 by ssottori          #+#    #+#             */
-/*   Updated: 2024/03/20 15:46:25 by ssottori         ###   ########.fr       */
+/*   Created: 2023/11/11 19:04:44 by ssottori          #+#    #+#             */
+/*   Updated: 2023/11/11 19:09:16 by ssottori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-void	p_error(void)
+void	ft_putchar_fd(char c, int fd)
 {
-	perror("Error");
-	exit(EXIT_FALIURE);
+	write(fd, &c, 1);
 }

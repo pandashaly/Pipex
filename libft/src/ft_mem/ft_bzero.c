@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssottori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 15:39:08 by ssottori          #+#    #+#             */
-/*   Updated: 2024/03/20 15:46:25 by ssottori         ###   ########.fr       */
+/*   Created: 2023/11/06 17:40:54 by ssottori          #+#    #+#             */
+/*   Updated: 2023/11/21 22:24:23 by ssottori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+/*Replaces n zeroed bytes to the string s, if n is zero, bzero does nothing*/
 
-void	p_error(void)
+#include "libft.h"
+
+void	ft_bzero(void *s, size_t n)
 {
-	perror("Error");
-	exit(EXIT_FALIURE);
+	unsigned char	*ptr;
+	size_t			i;
+
+	ptr = ((unsigned char *)s);
+	i = 0;
+	while (i < n)
+	{
+		ptr[i] = 0;
+		i++;
+	}
 }

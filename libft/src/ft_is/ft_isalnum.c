@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssottori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 15:39:08 by ssottori          #+#    #+#             */
-/*   Updated: 2024/03/20 15:46:25 by ssottori         ###   ########.fr       */
+/*   Created: 2023/11/08 21:08:29 by ssottori          #+#    #+#             */
+/*   Updated: 2023/11/10 17:25:33 by ssottori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+/*checks whether the given value is an alphabetical char (uppercase /lowercase)
+ * or if it's a decimal digit (0 - 9) */
 
-void	p_error(void)
+#include "libft.h"
+
+int	ft_isalnum(int c)
 {
-	perror("Error");
-	exit(EXIT_FALIURE);
+	return (ft_isalpha(c) || ft_isdigit(c));
 }

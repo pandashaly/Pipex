@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssottori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 15:39:08 by ssottori          #+#    #+#             */
-/*   Updated: 2024/03/20 15:46:25 by ssottori         ###   ########.fr       */
+/*   Created: 2024/03/20 15:44:01 by ssottori          #+#    #+#             */
+/*   Updated: 2024/03/20 15:45:52 by ssottori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#ifndef PIPEX_H
+# define PIPEX_H
 
-void	p_error(void)
-{
-	perror("Error");
-	exit(EXIT_FALIURE);
-}
+# include "libft.h"
+# include <stdlib.h>
+
+void	child_process(char **av, char **envp, int fd);
+void	parent_process(char **av, char **envp, int fd);
+
+void	find_path(char *cmd, char **envp);
+void	p_error(void);
+
+#endif

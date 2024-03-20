@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssottori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 15:39:08 by ssottori          #+#    #+#             */
-/*   Updated: 2024/03/20 15:46:25 by ssottori         ###   ########.fr       */
+/*   Created: 2023/11/28 16:21:08 by ssottori          #+#    #+#             */
+/*   Updated: 2023/11/29 17:09:40 by ssottori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-void	p_error(void)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	perror("Error");
-	exit(EXIT_FALIURE);
+	t_list	*buff;
+
+	buff = lst;
+	while (buff)
+	{
+		f(buff->content);
+		buff = buff->next;
+	}
 }

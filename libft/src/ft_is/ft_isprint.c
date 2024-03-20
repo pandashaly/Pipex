@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssottori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 15:39:08 by ssottori          #+#    #+#             */
-/*   Updated: 2024/03/20 15:46:25 by ssottori         ###   ########.fr       */
+/*   Created: 2023/11/08 21:13:13 by ssottori          #+#    #+#             */
+/*   Updated: 2023/11/10 13:55:51 by ssottori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+/*Tests for any printable characters including ' '*/
 
-void	p_error(void)
+#include "libft.h"
+
+int	ft_isprint(int c)
 {
-	perror("Error");
-	exit(EXIT_FALIURE);
+	if (c >= 32 && c <= 126)
+		return (1);
+	else
+		return (0);
 }

@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssottori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 15:39:08 by ssottori          #+#    #+#             */
-/*   Updated: 2024/03/20 15:46:25 by ssottori         ###   ########.fr       */
+/*   Created: 2023/11/08 21:07:16 by ssottori          #+#    #+#             */
+/*   Updated: 2023/11/10 13:50:36 by ssottori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+/*Check for a decimal digit 0 - 9*/
 
-void	p_error(void)
+#include "libft.h"
+
+int	ft_isdigit(int c)
 {
-	perror("Error");
-	exit(EXIT_FALIURE);
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
 }

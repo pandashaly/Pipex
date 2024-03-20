@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_iswhitespace.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssottori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 15:39:08 by ssottori          #+#    #+#             */
-/*   Updated: 2024/03/20 15:46:25 by ssottori         ###   ########.fr       */
+/*   Created: 2024/02/05 14:00:05 by ssottori          #+#    #+#             */
+/*   Updated: 2024/02/05 14:00:07 by ssottori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-void	p_error(void)
+int	ft_iswhitespace(int c)
 {
-	perror("Error");
-	exit(EXIT_FALIURE);
+	if (c == ' ' || c == '\t' || c == '\n' || \
+			c == '\r' || c == '\f' || c == '\v')
+		return (1);
+	else
+		return (0);
 }

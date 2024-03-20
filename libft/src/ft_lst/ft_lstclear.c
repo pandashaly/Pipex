@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssottori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 15:39:08 by ssottori          #+#    #+#             */
-/*   Updated: 2024/03/20 15:46:25 by ssottori         ###   ########.fr       */
+/*   Created: 2023/11/28 16:20:36 by ssottori          #+#    #+#             */
+/*   Updated: 2024/02/05 14:20:46 by ssottori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-void	p_error(void)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	perror("Error");
-	exit(EXIT_FALIURE);
+	t_list	*buff;
+
+	if (!lst || !del)
+		return ;
+	while ((*lst))
+	{
+		buff = (*lst)->next;
+		ft_lstdelone((*lst), del);
+		(*lst) = buff;
+	}
 }
