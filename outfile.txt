@@ -1,2 +1,0 @@
-Initial content of file2.
-This will be overwritten by pipex.

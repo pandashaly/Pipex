@@ -6,7 +6,7 @@
 /*   By: ssottori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 22:11:16 by ssottori          #+#    #+#             */
-/*   Updated: 2024/03/20 22:07:44 by ssottori         ###   ########.fr       */
+/*   Updated: 2024/03/25 19:11:56 by ssottori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,10 @@ int	main(int ac, char **av, char **envp)
 			p_error();
 		if (pid == 0)
 			child_process(av, envp, fd);
-		waitpid(pid, NULL, 0);
+		waitpid(pid, NULL, WNOHANG);
 		parent_process(av, envp, fd);
 	}
 	else
 		ft_putstr_fd("Error!", 2);
 	return (0);
 }
-
-/* TO DO:
- * [] get (find the path) and execute the cmd
- * []
- */

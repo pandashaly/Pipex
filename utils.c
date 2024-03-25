@@ -6,7 +6,7 @@
 /*   By: ssottori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 15:39:08 by ssottori          #+#    #+#             */
-/*   Updated: 2024/03/20 22:18:59 by ssottori         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:15:13 by ssottori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,21 @@ void	child_process(char **av, char **envp, int *fd)
 		p_error();
 	dup2(fd[1], STDOUT_FILENO);
 	dup2(infile, STDIN_FILENO);
-	close(fd[1]);
-	exec_cmd(av[1], envp);
+	close(fd[0]);
+	exec_cmd(av[2], envp);
 }
 
 void	parent_process(char **av, char **envp, int *fd)
 {
 	int	outfile;
 
-	outfile = open(av[1], O_WRONLY | O_CREAT | O_TRUNC, 0777);
+	outfile = open(av[4], O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	if (outfile == -1)
 		p_error();
-	dup2(fd[1], STDOUT_FILENO);
-	dup2(outfile, STDIN_FILENO);
+	dup2(fd[0], STDIN_FILENO);
+	dup2(outfile, STDOUT_FILENO);
 	close(fd[1]);
-	exec_cmd(av[1], envp);
+	exec_cmd(av[3], envp);
 }
 
 char	*cmd_path(char *cmd, char **envp)

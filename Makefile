@@ -6,7 +6,7 @@
 #    By: ssottori <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/05 19:29:37 by ssottori          #+#    #+#              #
-#    Updated: 2024/03/20 14:24:09 by ssottori         ###   ########.fr        #
+#    Updated: 2024/03/25 18:58:07 by ssottori         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ RED=\033[1;31m
 GREEN=\033[1;32m
 NC=\033[0m
 
-CCFLAGS = cc -Wall -Wextra -Werror -g
+CCFLAGS = cc -Wall -Wextra -Werror -ggdb3
 RM = rm -rf
 NAME = pipex
 
