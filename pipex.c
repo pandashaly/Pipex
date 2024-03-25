@@ -6,27 +6,14 @@
 /*   By: ssottori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 22:11:16 by ssottori          #+#    #+#             */
-/*   Updated: 2024/03/25 19:11:56 by ssottori         ###   ########.fr       */
+/*   Updated: 2024/03/25 23:15:36 by ssottori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-/* child - input
-   parent - output
-   both close with exec function
-   child -> 
-   run inside a fork
-   take filein
-   put output inside pipe
-   close with exec
-
-   parent ->
-   take data from pipe
-   change output for fileout
-   close with exec
-
-   waitpid, fork
+/*
+fix - error management
 */
 
 int	main(int ac, char **av, char **envp)
