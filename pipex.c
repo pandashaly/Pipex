@@ -6,7 +6,7 @@
 /*   By: ssottori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 22:11:16 by ssottori          #+#    #+#             */
-/*   Updated: 2024/03/25 23:15:36 by ssottori         ###   ########.fr       */
+/*   Updated: 2024/03/26 00:36:26 by ssottori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ int	main(int ac, char **av, char **envp)
 		parent_process(av, envp, fd);
 	}
 	else
-		ft_putstr_fd("Error!", 2);
+		ft_putstr_fd("Error! Wrong args\n", 2);
 	return (0);
 }
